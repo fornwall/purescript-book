@@ -21,4 +21,7 @@ squared array = map (\n -> n*n) array
 keepNonNegative :: Array Number -> Array Number
 keepNonNegative array = filter (\n -> n >= 0.0) array
 
+infix 8 filter as <$?>
 
+keepNonNegativeRewrite :: Array Number -> Array Number
+keepNonNegativeRewrite array = (_ >= 0.0) <$?> array
