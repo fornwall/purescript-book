@@ -1,6 +1,6 @@
 module Test.Main where
 
-import Prelude
+import Prelude (Unit, discard, ($), (<$>), negate)
 import Test.Examples
 import Test.MySolutions
 import Data.Array (sort)
@@ -17,7 +17,6 @@ main :: Effect Unit
 main =
   runTest do
     runChapterExamples
-    {-  Move this block comment starting point to enable more tests
     suite "Exercise Group - Recursion" do
       test "Exercise - isEven" do
         assert "0 is even"
@@ -56,6 +55,7 @@ main =
         test "Filter negative numbers" do
           Assert.equal [ 0.0, 2.0, 3.0 ]
             $ keepNonNegative [ -1.5, -1.0, 0.0, -0.1, 2.0, 3.0, -4.0 ]
+{--
       suite "Exercise - <$?> infix operator for filter" do
         test "Define <$?> operator for filter" do
           Assert.equal [ 1, 1 ]
