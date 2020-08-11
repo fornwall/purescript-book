@@ -1,7 +1,7 @@
 module Test.Main where
 
-import Prelude (Unit, discard, ($), (<$>), negate, (==))
-import Test.Examples
+import Prelude
+import Test.Examples (allFiles, allFiles', fact, factTailRec, factors, factorsV2, factorsV3, fib, length, lengthTailRec)
 import Test.MySolutions
 import Data.Array (sort)
 import Data.Maybe (Maybe(..))
@@ -75,7 +75,6 @@ main =
           $ isPrime 4
         assert "997 is prime"
           $ isPrime 997
-{--
       suite "Exercise - cartesianProduct" do
         let
           -- Don't worry if this this testing helper function signature looks confusing.
@@ -140,6 +139,7 @@ main =
         test "More than 1 element" do
           Assert.equal [ 3, 2, 1 ]
             $ reverse [ 1, 2, 3 ]
+  {--
     suite "Exercise Group - Filesystem" do
       test "Exercise - onlyFiles" do
         Assert.equal
