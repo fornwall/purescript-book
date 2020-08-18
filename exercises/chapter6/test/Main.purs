@@ -36,7 +36,6 @@ main =
           Assert.expectFailure "should not be equal"
             $ Assert.equal (Complex { real: 5.0, imaginary: 2.0 })
             $ Complex { real: 1.0, imaginary: 2.0 }
-  {-  Move this block comment starting point to enable more tests
     suite "Exercise Group - Constraints and Dependencies" do
       suite "Exercise - Eq for NonEmpty" do
         test "NonEmpty equals" do
@@ -56,6 +55,8 @@ main =
           Assert.equal (NonEmpty 10 [ 20, 30 ])
             $ map (_ * 10)
             $ NonEmpty 1 [ 2, 3 ]
+{-  Move this block comment starting point to enable more tests
+
       suite "Exercise - Ord for Extended" do
         -- Type annotation necessary to ensure there is an Ord instance for inner type (Int in this case)
         test "Extended compare inf inf" do

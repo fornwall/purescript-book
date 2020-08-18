@@ -20,3 +20,21 @@ instance showComplex :: Show Complex where
 
 instance eqComplex :: Eq Complex where
   eq (Complex a) (Complex b) = a.real == b.real && a.imaginary == b.imaginary
+
+data NonEmpty a = NonEmpty a (Array a)
+
+instance eqNonEmpty :: Eq a => Eq (NonEmpty a) where
+  eq (NonEmpty e1 a1) (NonEmpty e2 a2) = e1 == e2 && a1 == a2
+
+instance showNonEmpty :: Show a => Show (NonEmpty a) where
+  show (NonEmpty e1 a1) = show e1 <> ", " <> show a1
+
+--class Semigroup a where
+--  append :: a -> a -> a
+instance semigroupNonEmpty :: Semigroup (NonEmpty a) where
+  append (NonEmpty e1 a1) (NonEmpty e2 a2) = NonEmpty e1 (a1 <> [ e2 ] <> a2)
+
+--class Functor f where
+--  map :: forall a b. (a -> b) -> f a -> f b
+instance functorNonEmpty :: Functor NonEmpty where
+  map f (NonEmpty e a) = NonEmpty (f e) (map f a)
